@@ -1,0 +1,37 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  creationTimestamp: null
+  labels:
+    controller-tools.k8s.io: "1.0"
+  name: legacytargets.duck.knative.dev
+spec:
+  group: duck.knative.dev
+  names:
+    kind: LegacyTarget
+    plural: legacytargets
+  scope: Namespaced
+  validation:
+    openAPIV3Schema:
+      properties:
+        apiVersion:
+          type: string
+        kind:
+          type: string
+        metadata:
+          type: object
+        status:
+          properties:
+            domainInternal:
+              type: string
+          type: object
+      required:
+      - status
+      type: object
+  version: v1alpha1
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null

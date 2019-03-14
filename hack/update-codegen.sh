@@ -50,4 +50,5 @@ ${REPO_ROOT_DIR}/hack/update-deps.sh
 
 # Generate CRD validation schema, needs to execute at project root.
 go install ${REPO_ROOT_DIR}/vendor/sigs.k8s.io/controller-tools/cmd/crd
-${GOPATH}/bin/crd generate --root-path "${REPO_ROOT_DIR}/.."
+cd "${REPO_ROOT_DIR}/.."
+${GOPATH}/bin/crd generate --domain knative.dev
