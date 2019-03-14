@@ -21,7 +21,7 @@ package v1alpha1
 import (
 	time "time"
 
-	authenticationv1alpha1 "github.com/knative/pkg/apis/istio/authentication/v1alpha1"
+	authenticationv1alpha1 "github.com/knative/pkg/apis/authentication/v1alpha1"
 	versioned "github.com/knative/pkg/client/clientset/versioned"
 	internalinterfaces "github.com/knative/pkg/client/informers/externalversions/internalinterfaces"
 	v1alpha1 "github.com/knative/pkg/client/listers/authentication/v1alpha1"

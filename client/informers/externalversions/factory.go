@@ -26,7 +26,7 @@ import (
 	versioned "github.com/knative/pkg/client/clientset/versioned"
 	authentication "github.com/knative/pkg/client/informers/externalversions/authentication"
 	internalinterfaces "github.com/knative/pkg/client/informers/externalversions/internalinterfaces"
-	istio "github.com/knative/pkg/client/informers/externalversions/istio"
+	networking "github.com/knative/pkg/client/informers/externalversions/networking"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
@@ -174,13 +174,13 @@ type SharedInformerFactory interface {
 	WaitForCacheSync(stopCh <-chan struct{}) map[reflect.Type]bool
 
 	Authentication() authentication.Interface
-	Networking() istio.Interface
+	Networking() networking.Interface
 }
 
 func (f *sharedInformerFactory) Authentication() authentication.Interface {
 	return authentication.New(f, f.namespace, f.tweakListOptions)
 }
 
-func (f *sharedInformerFactory) Networking() istio.Interface {
-	return istio.New(f, f.namespace, f.tweakListOptions)
+func (f *sharedInformerFactory) Networking() networking.Interface {
+	return networking.New(f, f.namespace, f.tweakListOptions)
 }
